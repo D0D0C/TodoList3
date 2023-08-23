@@ -6,10 +6,7 @@ import org.example.model.Task;
 import org.example.model.TaskInfo;
 import org.example.model.User;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -41,7 +38,7 @@ public class ToDoListAppConsole {
 
             switch (choice){
                 case 1:
-                    addUser (scanner);
+                    addUser(scanner);
                     break;
                 case 2:
                     addTask(scanner);
@@ -67,30 +64,17 @@ public class ToDoListAppConsole {
         }while (choice != 5);
     }
 
+                private static void addUser (Scanner scanner){
+                System.out.println("Entrer le nom de l'utlisateur: ");
+                String name = scanner.nextLine();
 
-    private static void addUser(Scanner scanner) {
-        System.out.println("Entrer le nom de la personne : ");
-        String name = scanner.nextLine();
 
-        // Creation du user
+                // Creation de la tache
+                User user = new User);
+                user.setId(user.getId());
+                user.setCompleted(false);
 
-        User user = new User();
-        user.setName(name);
-
-        Task task = new Task();
-        task.setId(task.getId());
-
-        // Mise en relation avec Task
-
-        user.setName(name);
-        task.setId(Id);
-
-        if (user.getTasks().contains(task)) {
-            System.out.println("Utilisateur ajouté avec succès !");
-        } else {
-            System.out.println("Erreur");
-
-            private static void addTask (Scanner scanner){
+                private static void addTask (Scanner scanner){
                 System.out.println("Entrer le titre de la tâche : ");
                 String title = scanner.nextLine();
 
@@ -107,7 +91,7 @@ public class ToDoListAppConsole {
                 scanner.nextLine();
 
                 // Creation de la tache
-                task = new Task();
+                Task task = new Task();
                 task.setTitle(title);
                 task.setCompleted(false);
 
@@ -126,7 +110,7 @@ public class ToDoListAppConsole {
                 }
             }
 
-            private static void displayTasks () {
+            private static void displayTasks() {
                 List<Task> tasks = taskDAO.getAllTasks();
 
                 if (tasks.isEmpty()) {
@@ -165,4 +149,7 @@ public class ToDoListAppConsole {
                     System.out.println("Erreur");
                 }
             }
+
         }
+    }
+}

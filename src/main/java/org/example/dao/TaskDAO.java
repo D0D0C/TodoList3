@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.model.Task;
+import org.example.model.User;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface TaskDAO {
     public boolean deleteTask(Long taskId);
 
     public boolean markTaskAsCompleted(Long taskId);
+
+    public boolean addUser(User user);
 }

@@ -2,6 +2,7 @@ package org.example.model;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name= "tasks")
@@ -11,11 +12,15 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    private String description;
+    private LocalDate dueDate;
     private boolean completed;
 
-    @OneToOne(mappedBy = "task",cascade = CascadeType.ALL,orphanRemoval = true)
-    private TaskInfo taskInfo;
+    private Sting
+
+    @ManyToOne
+    @JoinColumn(name = "id");
+    private User user;
 
     public Task() {
     }

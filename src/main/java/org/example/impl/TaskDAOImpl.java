@@ -18,26 +18,6 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     @Override
-    public boolean addUser(Task task) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        try {
-            transaction.begin();
-            entityManager.persist(task);
-            transaction.commit();
-            return true;
-        }catch (Exception e){
-            if(transaction.isActive()){
-                transaction.rollback();
-            }
-            e.printStackTrace();
-            return false;
-        }finally {
-            entityManager.close();
-        }
-    }
-
-    @Override
     public boolean addTask(Task task) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
